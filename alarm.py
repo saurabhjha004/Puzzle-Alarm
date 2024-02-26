@@ -5,7 +5,6 @@ import pygame
 import os
 import random
 
-# Function to generate algebraic puzzles
 def generate_puzzles(num_puzzles):
     puzzles = []
     for _ in range(num_puzzles):
@@ -17,7 +16,6 @@ def generate_puzzles(num_puzzles):
         puzzles.append((puzzle, answer))
     return puzzles
 
-# Function to validate user input as integer
 def is_integer(value):
     try:
         int(value)
@@ -25,7 +23,6 @@ def is_integer(value):
     except ValueError:
         return False
 
-# Function to set alarm
 def set_alarm(alarm_datetime, snooze_used):
     pygame.init()
     audio_path = os.path.join(os.path.dirname(__file__), "audio.wav")
@@ -68,7 +65,7 @@ def set_alarm(alarm_datetime, snooze_used):
         
         timer_text.text(f"Time left until alarm: {int(hours)} hours {int(minutes)} minutes {int(seconds)} seconds")
         
-        # Snooze button logic
+        # Snooze button
         if not snooze_used:
             snooze_button_key = f"snooze_button_{id(alarm_datetime)}_{random.randint(1, 1000)}"  # Unique key
             if snooze_button.button("Snooze", key=snooze_button_key):
